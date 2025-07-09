@@ -22,7 +22,7 @@ btn.addEventListener('click', function () {
          */
 
         //pass the dynamic random generated number
-        hexColor += hex[getRandomNumber()]; //calll the function
+        hexColor += hex[getRandomNumber()]; //call the function
     }
 
     color.textContent = hexColor;
