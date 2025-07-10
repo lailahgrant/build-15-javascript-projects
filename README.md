@@ -98,19 +98,88 @@ function getRandomNumber() {
 }
 ```
   
-1. Counter
-- Increase / decrease the count
-- Reset the count
-- Counts less than 0 are in red, greater than one are in green   
+2. Counter
+- Accessing and using the `NodeList`, using the `forEach` loop
+```javascript
+//* set initial count
+let count = 0;
 
-1. Reviews
-2. Navbar
-3. Sidebar
-4. Modal
-5. Questions
-6. Menu
-7.  Video
-8.  Scroll
+// select value and buttons
+const value = document.querySelector("#value");
+const btns = document.querySelectorAll('.btn');
+
+//console shows a nodelist
+console.log(btns);
+
+//loop through all these buttons
+btns.forEach(function (btn) {
+    //console.log(btn);
+
+    //add an event listener to all these buttons
+    btn.addEventListener('click', function (e) {
+        //access the event objects - to know which button is clicked
+        // event object has currentTarget method, look for the classList
+        //console.log(e.currentTarget); //shows the button the user clicks on 
+
+        //shows the class of the individual buttons clicked
+        //console.log(e.currentTarget.classList);
+
+        const styles = e.currentTarget.classList;
+
+```
+
+- Increment, Decrement and Reset the count
+```javascript
+//make an if statement
+        if (styles.contains('decrease')) {
+            count--;
+        }
+        else if (styles.contains('increase')) {
+            count++;
+        }
+        else {
+            count = 0;
+        }
+
+
+```
+
+- Counts less than 0 are in red, greater than one are in green   
+```javascript
+//increase
+        if (count > 0) {
+            //turn the span value to green when counter is increasing
+            value.style.color = "green";
+        }
+
+        //decrease
+        if (count < 0) {
+            value.style.color = "red";
+        }
+
+        //reset
+        if (count === 0) {
+            value.style.color = "#222";
+        }
+
+
+        //change the displayed value of the counter in the span
+        value.textContent = count;
+
+    })
+
+});
+```
+
+
+3. Reviews
+4. Navbar
+5. Sidebar
+6. Modal
+7. Questions
+8. Menu
+9.  Video
+10.  Scroll
 9.  Tabs
 10. Countdown timer
 11. Lorem Ipsum
